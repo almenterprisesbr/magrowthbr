@@ -41,7 +41,7 @@ export function Reveal({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      variants={variants[variant]}
+      variants={variants[variant] ?? variants["fade-up"]!}
       transition={{ duration: 0.85, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
