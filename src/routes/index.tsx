@@ -1,24 +1,108 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { LivingBackground } from "@/components/ds/LivingBackground";
+import { FloatingWhatsApp } from "@/components/ds/FloatingWhatsApp";
+import { CursorGlow } from "@/components/motion/CursorGlow";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Navbar } from "@/components/sections/Navbar";
+import { Hero } from "@/components/sections/Hero";
+import { Method } from "@/components/sections/Method";
+import { Solutions } from "@/components/sections/Solutions";
+import { Results } from "@/components/sections/Results";
+import { Faq } from "@/components/sections/Faq";
+import { FinalCta } from "@/components/sections/FinalCta";
+import { Footer } from "@/components/sections/Footer";
+
+const title = "MA Growth — Crescimento previsível para empresas que vendem todos os dias";
+const description =
+  "Tecnologia, dados e aquisição em um só sistema. A MA Growth transforma operações em máquinas de receita previsível. Fale agora no WhatsApp.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Loader() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <motion.div
+      exit={{ opacity: 0, filter: "blur(12px)" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed inset-0 z-[80] grid place-items-center bg-background"
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+      <div className="flex flex-col items-center gap-5">
+        <span className="shimmer-text text-sm tracking-[0.4em] uppercase">MA Growth</span>
+        <span className="h-px w-40 overflow-hidden bg-border">
+          <motion.span
+            initial={{ x: "-100%" }}
+            animate={{ x: "0%" }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="block h-full w-full bg-[image:var(--gradient-gold)]"
+          />
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+function Index() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <>
+      <SmoothScroll />
+      <LivingBackground />
+      <CursorGlow />
+      <ScrollProgress />
+      <AnimatePresence>{loading ? <Loader key="loader" /> : null}</AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: loading ? 0 : 1, y: loading ? 12 : 0 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <Navbar />
+        <main>
+          <Hero />
+          <Method />
+          <Solutions />
+          <Results />
+          <Faq />
+          <FinalCta />
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </motion.div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "MA Growth",
+            description,
+            areaServed: "BR",
+            sameAs: ["https://instagram.com/magrowth"],
+          }),
+        }}
       />
-    </div>
+    </>
   );
 }
