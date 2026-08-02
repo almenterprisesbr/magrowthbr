@@ -55,7 +55,7 @@ export function Hero() {
               transition={{ duration: 0.9, delay: 0.35 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
               className="mr-[0.25em] inline-block"
             >
-              {i >= 5 ? <span className="text-gold-gradient">{w}</span> : w}
+              {i >= 5 ? <span className="text-brand-gradient">{w}</span> : w}
             </motion.span>
           ))}
         </h1>

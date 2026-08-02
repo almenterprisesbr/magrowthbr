@@ -48,7 +48,7 @@ function Loader() {
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="block h-full w-full bg-[image:var(--gradient-gold)]"
+            className="block h-full w-full bg-[image:var(--gradient-brand)]"
           />
         </span>
       </div>

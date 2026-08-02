@@ -43,12 +43,12 @@ export function Navbar() {
         >
           <span
             aria-hidden
-            className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-gold)] text-[13px] font-bold text-primary-foreground"
+            className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-brand)] text-[13px] font-bold text-primary-foreground"
           >
             MA
           </span>
           <span className="hidden sm:inline">
-            MA <span className="text-gold-gradient">Growth</span>
+            MA <span className="text-brand-gradient">Growth</span>
           </span>
         </a>
 
@@ -57,7 +57,7 @@ export function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="relative rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground after:absolute after:inset-x-4 after:bottom-1 after:h-px after:origin-right after:scale-x-0 after:bg-gold after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+                className="relative rounded-full px-4 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground after:absolute after:inset-x-4 after:bottom-1 after:h-px after:origin-right after:scale-x-0 after:bg-brand after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
               >
                 {l.label}
               </a>
@@ -78,7 +78,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label={open ? "Fechar menu" : "Abrir menu"}
-            className="grid size-11 place-items-center rounded-full border border-border text-foreground transition-colors duration-300 hover:border-gold/60 hover:text-gold md:hidden"
+            className="grid size-11 place-items-center rounded-full border border-border text-foreground transition-colors duration-300 hover:border-brand/60 hover:text-brand md:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

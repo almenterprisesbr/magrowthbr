@@ -39,7 +39,7 @@ export function FinalCta() {
         <Reveal variant="blur">
           <h2 className="max-w-4xl text-[clamp(2.6rem,8vw,6rem)] leading-[0.93] font-semibold tracking-[-0.04em] text-balance">
             Seu próximo cliente já está procurando por alguém como você.{" "}
-            <span className="text-gold-gradient">Vamos construir essa conexão.</span>
+            <span className="text-brand-gradient">Vamos construir essa conexão.</span>
           </h2>
         </Reveal>
 

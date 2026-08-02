@@ -16,11 +16,11 @@ export function Footer() {
           <a href="#topo" className="flex items-center gap-2 text-sm font-semibold">
             <span
               aria-hidden
-              className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-gold)] text-[13px] font-bold text-primary-foreground"
+              className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-brand)] text-[13px] font-bold text-primary-foreground"
             >
               MA
             </span>
-            MA <span className="text-gold-gradient">Growth</span>
+            MA <span className="text-brand-gradient">Growth</span>
           </a>
 
           <ul className="flex flex-wrap items-center gap-6">
@@ -29,7 +29,7 @@ export function Footer() {
                 <a
                   href={l.href}
                   {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-gold"
+                  className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-brand"
                 >
                   <l.icon
                     aria-hidden
@@ -44,7 +44,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground">
           <p className="inline-flex items-center gap-2">
-            <MapPin aria-hidden className="size-4 text-gold" />
+            <MapPin aria-hidden className="size-4 text-brand" />
             {site.location}
           </p>
           <p>© {new Date().getFullYear()} MA Growth. Todos os direitos reservados.</p>

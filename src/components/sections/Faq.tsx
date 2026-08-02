@@ -37,7 +37,7 @@ export function Faq() {
         <Reveal variant="blur">
           <Eyebrow>Dúvidas</Eyebrow>
           <Heading className="mt-6">
-            Antes de <span className="text-gold-gradient">conversar</span>
+            Antes de <span className="text-brand-gradient">conversar</span>
           </Heading>
           <Lead className="mt-5">
             Transparência total sobre como trabalhamos, quanto custa e o que esperar.
@@ -50,9 +50,9 @@ export function Faq() {
               <AccordionItem
                 key={f.q}
                 value={f.q}
-                className="border-b border-border transition-colors duration-300 hover:border-gold/50"
+                className="border-b border-border transition-colors duration-300 hover:border-brand/50"
               >
-                <AccordionTrigger className="py-6 text-left text-base font-medium hover:text-gold hover:no-underline md:text-lg">
+                <AccordionTrigger className="py-6 text-left text-base font-medium hover:text-brand hover:no-underline md:text-lg">
                   {f.q}
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
