@@ -9,9 +9,9 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { Method } from "@/components/sections/Method";
-import { Solutions } from "@/components/sections/Solutions";
-import { Results } from "@/components/sections/Results";
+import { ServiceSelector } from "@/components/sections/ServiceSelector";
+import { Model } from "@/components/sections/Model";
+import { Authority } from "@/components/sections/Authority";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
@@ -80,9 +80,9 @@ function Index() {
         <Navbar />
         <main>
           <Hero />
-          <Method />
-          <Solutions />
-          <Results />
+          <ServiceSelector />
+          <Model />
+          <Authority />
           <Faq />
           <FinalCta />
         </main>

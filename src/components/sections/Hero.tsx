@@ -117,7 +117,7 @@ export function Hero() {
         transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-xs tracking-[0.3em] text-muted-foreground uppercase md:block"
       >
-        role
+        scroll
       </motion.span>
     </section>
   );

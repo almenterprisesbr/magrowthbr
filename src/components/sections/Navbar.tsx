@@ -8,9 +8,9 @@ import { whatsappUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#metodo", label: "Método" },
-  { href: "#solucoes", label: "Soluções" },
-  { href: "#resultados", label: "Resultados" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#modelo", label: "Modelo" },
+  { href: "#quem-executa", label: "Quem executa" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
 
