@@ -78,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MA Growth" },
-      { name: "description", content: "Crescimento previsível com tecnologia, dados e aquisição." },
+      { name: "description", content: "Marketing digital pontual: sites, social media, tráfego pago e automação." },
       { name: "author", content: "MA Growth" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#0d0c0a" },
+      { name: "theme-color", content: "#0a0a0a" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

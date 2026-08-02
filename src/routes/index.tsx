@@ -16,9 +16,9 @@ import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 
-const title = "MA Growth — Crescimento previsível para empresas que vendem todos os dias";
+const title = "MA Growth — Marketing digital pontual, sem contrato engessado";
 const description =
-  "Tecnologia, dados e aquisição em um só sistema. A MA Growth transforma operações em máquinas de receita previsível. Fale agora no WhatsApp.";
+  "Contrate só o que sua empresa precisa: landing pages de alta conversão, automação de WhatsApp, tráfego pago e social media. Fale direto com o Matheus.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -99,7 +99,11 @@ function Index() {
             name: "MA Growth",
             description,
             areaServed: "BR",
-            sameAs: ["https://instagram.com/magrowth"],
+            founder: { "@type": "Person", name: "Matheus Almeida Vieira" },
+            address: { "@type": "PostalAddress", addressLocality: "São Vicente", addressRegion: "SP", addressCountry: "BR" },
+            email: "omatheusx08@gmail.com",
+            telephone: "+5513988631429",
+            sameAs: ["https://instagram.com/ma.growthbr"],
           }),
         }}
       />
