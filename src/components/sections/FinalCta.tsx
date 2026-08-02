@@ -1,61 +1,43 @@
 import { MessageCircle } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
 
 import { Button } from "@/components/ds/Button";
+import { Heading } from "@/components/ds/Section";
 import { Magnetic } from "@/components/motion/MagneticButton";
 import { Reveal } from "@/components/motion/Reveal";
-import ctaImage from "@/assets/cta-bw.jpg";
 import { whatsappUrl } from "@/lib/site";
 
 export function FinalCta() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1]);
-
   return (
-    <section
-      ref={ref}
-      id="contato"
-      className="relative flex min-h-[92vh] items-center overflow-hidden"
-    >
-      <motion.img
-        src={ctaImage}
-        alt="Empresário observando a cidade a partir de um escritório, em fotografia preto e branco"
-        width={1280}
-        height={1600}
-        loading="lazy"
-        style={{ y, scale }}
-        className="absolute inset-0 size-full object-cover object-[65%_center] opacity-45 grayscale"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(100deg,var(--background)_18%,color-mix(in_oklab,var(--background)_70%,transparent)_55%,transparent)]"
-      />
-      <div aria-hidden className="noise-layer absolute inset-0" />
+    <section id="contato" className="relative w-full px-5 py-24 sm:px-8 md:py-32">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] border border-brand/40 px-6 py-20 text-center sm:px-12">
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,color-mix(in_oklab,var(--brand)_35%,transparent),transparent_65%)]"
+        />
+        <span aria-hidden className="noise-layer absolute inset-0" />
 
-      <div className="relative mx-auto w-full max-w-6xl px-5 py-28 sm:px-8">
-        <Reveal variant="blur">
-          <h2 className="max-w-4xl text-[clamp(2.6rem,8vw,6rem)] leading-[0.93] font-semibold tracking-[-0.04em] text-balance">
-            Seu próximo cliente já está procurando por alguém como você.{" "}
-            <span className="text-brand-gradient">Vamos construir essa conexão.</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.15} className="mt-10">
-          <Magnetic strength={0.4}>
-            <Button asChild size="lg">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle aria-hidden />
-                Falar no WhatsApp
-              </a>
-            </Button>
-          </Magnetic>
-          <p className="mt-5 text-xs tracking-wide text-muted-foreground">
-            Resposta em até 2 horas úteis · Diagnóstico inicial sem custo
-          </p>
-        </Reveal>
+        <div className="relative flex flex-col items-center gap-6">
+          <Reveal variant="blur">
+            <Heading className="mx-auto max-w-3xl">
+              Pronto para acelerar a presença digital do seu negócio?
+            </Heading>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="max-w-xl text-base text-muted-foreground">
+              Sem compromisso. Clique abaixo e fale diretamente com o Matheus.
+            </p>
+          </Reveal>
+          <Reveal delay={0.18}>
+            <Magnetic>
+              <Button asChild size="lg" className="min-h-14 text-base">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden />
+                  Falar com Matheus no WhatsApp
+                </a>
+              </Button>
+            </Magnetic>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

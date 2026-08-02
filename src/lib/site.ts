@@ -4,8 +4,7 @@ export const site = {
   tagline: "Marketing digital pontual, sem contrato engessado",
   whatsappNumber: "5513988631429",
   whatsappDisplay: "(13) 98863-1429",
-  whatsappMessage:
-    "Oi Matheus! Quero montar um projeto pontual para minha empresa.",
+  whatsappMessage: "Oi Matheus! Quero montar um projeto pontual para minha empresa.",
   instagram: "https://instagram.com/ma.growthbr",
   instagramHandle: "@ma.growthbr",
   email: "omatheusx08@gmail.com",
