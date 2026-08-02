@@ -1,68 +1,86 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Eyebrow, Heading, Lead, Section } from "@/components/ds/Section";
+import { Plus } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+
+import { Eyebrow, Heading, Section } from "@/components/ds/Section";
 import { Reveal } from "@/components/motion/Reveal";
+import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "Vocês são uma agência?",
-    a: "Não. Somos uma empresa de tecnologia focada em crescimento. Entregamos sistema, dado e automação — mídia é só uma das alavancas dentro disso.",
+    q: "Preciso fechar um contrato mensal para começar?",
+    a: "Não! Trabalhamos com serviços pontuais. Se você precisa só do site ou só da automação, fazemos exatamente isso.",
   },
   {
-    q: "Qual o investimento mínimo?",
-    a: "Trabalhamos com operações que já faturam a partir de R$ 100 mil/mês ou que têm verba de mídia de no mínimo R$ 15 mil/mês. Assim conseguimos gerar leitura estatística real.",
+    q: "Como funciona o atendimento após a entrega?",
+    a: "Fornecemos suporte e alinhamento direto para garantir que o serviço contratado esteja gerando retorno.",
   },
   {
-    q: "Em quanto tempo vejo resultado?",
-    a: "Primeiras campanhas no ar em até 21 dias. Leitura consistente de CAC e ROAS entre o 45º e o 90º dia.",
-  },
-  {
-    q: "Existe fidelidade de contrato?",
-    a: "O ciclo inicial é de 90 dias, tempo mínimo para validar hipóteses. Depois disso, a renovação é mensal — ficamos porque o número justifica.",
-  },
-  {
-    q: "Como acompanho o trabalho?",
-    a: "Dashboard em tempo real, ritual semanal de leitura e um canal direto no WhatsApp com o time responsável pela sua conta.",
+    q: "Quanto tempo demora para o meu site/automação ficar pronto?",
+    a: "Prazos ágeis e pré-definidos na proposta inicial, sem atrasos.",
   },
 ];
 
 export function Faq() {
-  return (
-    <Section id="duvidas">
-      <div className="grid gap-12 md:grid-cols-[0.9fr_1.1fr]">
-        <Reveal variant="blur">
-          <Eyebrow>Dúvidas</Eyebrow>
-          <Heading className="mt-6">
-            Antes de <span className="text-gold-gradient">conversar</span>
-          </Heading>
-          <Lead className="mt-5">
-            Transparência total sobre como trabalhamos, quanto custa e o que esperar.
-          </Lead>
-        </Reveal>
+  const [open, setOpen] = useState<number | null>(0);
 
-        <Reveal delay={0.1}>
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((f) => (
-              <AccordionItem
-                key={f.q}
-                value={f.q}
-                className="border-b border-border transition-colors duration-300 hover:border-gold/50"
-              >
-                <AccordionTrigger className="py-6 text-left text-base font-medium hover:text-gold hover:no-underline md:text-lg">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+  return (
+    <Section id="duvidas" label="Perguntas frequentes">
+      <div className="flex flex-col items-start gap-5">
+        <Reveal>
+          <Eyebrow>Dúvidas</Eyebrow>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <Heading>Perguntas frequentes</Heading>
         </Reveal>
       </div>
+
+      <ul className="mt-12 space-y-3">
+        {faqs.map((f, i) => {
+          const active = open === i;
+          return (
+            <Reveal as="li" key={f.q} delay={i * 0.06}>
+              <div
+                className={cn(
+                  "rounded-3xl border transition-colors duration-300",
+                  active ? "border-brand/50 bg-accent/50" : "border-border bg-surface/50",
+                )}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpen(active ? null : i)}
+                  aria-expanded={active}
+                  className="flex min-h-14 w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                >
+                  <span className="text-base font-medium">{f.q}</span>
+                  <Plus
+                    aria-hidden
+                    className={cn(
+                      "size-5 shrink-0 text-brand transition-transform duration-300 ease-[var(--ease-lux)]",
+                      active && "rotate-45",
+                    )}
+                  />
+                </button>
+                <AnimatePresence initial={false}>
+                  {active ? (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">
+                        {f.a}
+                      </p>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </div>
+            </Reveal>
+          );
+        })}
+      </ul>
     </Section>
   );
 }

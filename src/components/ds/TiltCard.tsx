@@ -17,7 +17,7 @@ export function TiltCard({
   const ry = useSpring(useMotionValue(0), { stiffness: 200, damping: 20 });
   const mx = useMotionValue(50);
   const my = useMotionValue(50);
-  const spotlight = useMotionTemplate`radial-gradient(340px circle at ${mx}% ${my}%, color-mix(in oklab, var(--gold) 14%, transparent), transparent 70%)`;
+  const spotlight = useMotionTemplate`radial-gradient(340px circle at ${mx}% ${my}%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 70%)`;
 
   const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const r = e.currentTarget.getBoundingClientRect();

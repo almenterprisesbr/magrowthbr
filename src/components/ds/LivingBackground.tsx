@@ -17,22 +17,22 @@ export function LivingBackground() {
 
       <motion.div
         style={{ opacity: hue }}
-        className="animate-drift absolute -top-40 -left-32 size-[46rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold)_16%,transparent),transparent_65%)] blur-3xl"
+        className="animate-drift absolute -top-40 -left-32 size-[46rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand)_16%,transparent),transparent_65%)] blur-3xl"
       />
       <div
-        className="animate-drift absolute top-1/3 -right-40 size-[38rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold-deep)_18%,transparent),transparent_65%)] blur-3xl"
+        className="animate-drift absolute top-1/3 -right-40 size-[38rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand-deep)_18%,transparent),transparent_65%)] blur-3xl"
         style={{ animationDelay: "-8s" }}
       />
       <div
-        className="animate-drift absolute bottom-0 left-1/3 size-[32rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold-soft)_10%,transparent),transparent_65%)] blur-3xl"
+        className="animate-drift absolute bottom-0 left-1/3 size-[32rem] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand-soft)_10%,transparent),transparent_65%)] blur-3xl"
         style={{ animationDelay: "-15s" }}
       />
 
       <svg className="absolute inset-0 size-full opacity-[0.18]" preserveAspectRatio="none">
         <defs>
-          <linearGradient id="lineGold" x1="0" x2="1">
+          <linearGradient id="lineBrand" x1="0" x2="1">
             <stop offset="0%" stopColor="transparent" />
-            <stop offset="50%" stopColor="var(--gold)" />
+            <stop offset="50%" stopColor="var(--brand)" />
             <stop offset="100%" stopColor="transparent" />
           </linearGradient>
         </defs>
@@ -43,7 +43,7 @@ export function LivingBackground() {
             x2="100%"
             y1={`${top}%`}
             y2={`${top}%`}
-            stroke="url(#lineGold)"
+            stroke="url(#lineBrand)"
             strokeWidth="1"
             strokeDasharray="6 14"
           >
@@ -61,7 +61,7 @@ export function LivingBackground() {
       {Array.from({ length: 14 }).map((_, i) => (
         <span
           key={i}
-          className="animate-float-slow absolute size-1 rounded-full bg-gold/50"
+          className="animate-float-slow absolute size-1 rounded-full bg-brand/50"
           style={{
             left: `${(i * 37) % 100}%`,
             top: `${(i * 61) % 100}%`,

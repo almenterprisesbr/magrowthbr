@@ -1,115 +1,124 @@
-import { ArrowUpRight, MessageCircle } from "lucide-react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { ArrowDown, MessageCircle, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
 
 import { Button } from "@/components/ds/Button";
-import { Eyebrow } from "@/components/ds/Section";
+import { Eyebrow, Heading, Lead } from "@/components/ds/Section";
+import { TiltCard } from "@/components/ds/TiltCard";
 import { Magnetic } from "@/components/motion/MagneticButton";
-import heroBg from "@/assets/hero-bg.jpg";
-import { whatsappUrl } from "@/lib/site";
+import { Reveal } from "@/components/motion/Reveal";
+import { site, whatsappUrl } from "@/lib/site";
 
-const words = ["Crescimento", "previsível", "para", "quem", "vende", "todos", "os", "dias."];
+const highlights = [
+  "Landing pages de alta conversão",
+  "Automação de WhatsApp & CRM",
+  "Tráfego pago focado em vendas",
+];
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
   return (
     <section
       id="topo"
-      ref={ref}
-      className="relative flex min-h-dvh items-center overflow-hidden px-5 pt-32 pb-20 sm:px-8"
+      className="relative flex min-h-[100svh] w-full items-center px-5 pt-28 pb-20 sm:px-8"
     >
-      <motion.img
-        src={heroBg}
-        alt=""
-        aria-hidden
-        width={1920}
-        height={1080}
-        style={{ y: glowY }}
-        className="pointer-events-none absolute inset-0 size-full object-cover opacity-40 mix-blend-screen"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent,var(--background))]"
-      />
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[3fr_2fr]">
+        <div className="flex flex-col items-start gap-7">
+          <Reveal variant="blur">
+            <Eyebrow>Marketing digital pontual & sem contrato engessado</Eyebrow>
+          </Reveal>
 
-      <motion.div style={{ y, opacity }} className="relative mx-auto w-full max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <Eyebrow>MA Growth · Engenharia de crescimento</Eyebrow>
-        </motion.div>
+          <Reveal variant="blur" delay={0.08}>
+            <Heading as="h1" className="text-5xl sm:text-6xl md:text-7xl">
+              Sua marca precisa de{" "}
+              <span className="text-brand-gradient">resultados reais</span> — não de pacotes que
+              você não usa.
+            </Heading>
+          </Reveal>
 
-        <h1 className="mt-8 max-w-4xl text-[clamp(2.8rem,9vw,6.5rem)] leading-[0.92] font-semibold tracking-[-0.04em]">
-          {words.map((w, i) => (
-            <motion.span
-              key={w + i}
-              initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{ duration: 0.9, delay: 0.35 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              className="mr-[0.25em] inline-block"
-            >
-              {i >= 5 ? <span className="text-gold-gradient">{w}</span> : w}
-            </motion.span>
-          ))}
-        </h1>
+          <Reveal delay={0.16}>
+            <Lead>
+              Contrate exatamente o que o seu negócio precisa hoje: de Landing Pages de alta
+              conversão a automações no WhatsApp e gestão estratégica de redes sociais.
+            </Lead>
+          </Reveal>
 
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.9 }}
-          className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
-        >
-          Unimos tecnologia, dados e aquisição para transformar sua operação em uma máquina de
-          receita. Sem achismo, sem contrato eterno — só sistema, número e resultado.
-        </motion.p>
+          <Reveal delay={0.22} className="flex flex-wrap gap-3">
+            {highlights.map((h) => (
+              <span
+                key={h}
+                className="rounded-full border border-border bg-surface/60 px-4 py-2 text-xs text-muted-foreground"
+              >
+                {h}
+              </span>
+            ))}
+          </Reveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 1.05 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <Magnetic>
-            <Button asChild size="lg">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle aria-hidden />
-                Falar no WhatsApp
+          <Reveal delay={0.3} className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <Magnetic>
+              <Button asChild size="lg" className="w-full min-h-12 sm:w-auto">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden />
+                  Montar Meu Projeto no WhatsApp
+                </a>
+              </Button>
+            </Magnetic>
+            <Button asChild variant="outline" size="lg" className="min-h-12">
+              <a href="#servicos">
+                Montar estratégia
+                <ArrowDown aria-hidden />
               </a>
             </Button>
-          </Magnetic>
-          <Button asChild variant="outline" size="lg">
-            <a href="#metodo">
-              Ver o método
-              <ArrowUpRight aria-hidden />
-            </a>
-          </Button>
-        </motion.div>
+          </Reveal>
+        </div>
 
-        <motion.dl
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.3 }}
-          className="mt-16 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-3"
-        >
-          {[
-            { k: "+R$ 84M", v: "em receita rastreada" },
-            { k: "127", v: "operações escaladas" },
-            { k: "4,3x", v: "ROAS médio em 90 dias" },
-          ].map((s) => (
-            <div key={s.k} className="border-l border-border pl-4">
-              <dt className="text-2xl font-semibold text-foreground md:text-3xl">{s.k}</dt>
-              <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+        <Reveal variant="scale" delay={0.2}>
+          <TiltCard className="w-full">
+            <div className="flex flex-col gap-5">
+              <div className="flex items-center gap-4">
+                <span
+                  aria-hidden
+                  className="grid size-16 place-items-center rounded-2xl bg-[image:var(--gradient-brand)] text-xl font-bold text-primary-foreground shadow-[var(--shadow-brand)]"
+                >
+                  MA
+                </span>
+                <div>
+                  <p className="text-base font-semibold">{site.founder}</p>
+                  <p className="text-sm text-muted-foreground">Fundador · MA Growth</p>
+                </div>
+              </div>
+
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                Publicidade e Propaganda (UNISANTA). Especialista em Inteligência Artificial,
+                Design e Conteúdo. Você fala direto com quem executa.
+              </p>
+
+              <ul className="grid gap-2 text-sm">
+                {["Sem fidelidade forçada", "Atendimento direto", "IA aplicada ao projeto"].map(
+                  (item) => (
+                    <li key={item} className="flex items-center gap-2 text-muted-foreground">
+                      <Sparkles aria-hidden className="size-4 text-brand" />
+                      {item}
+                    </li>
+                  ),
+                )}
+              </ul>
+
+              <div className="flex items-center justify-between border-t border-border pt-4 text-xs text-muted-foreground">
+                <span>{site.location}</span>
+                <span>{site.instagramHandle}</span>
+              </div>
             </div>
-          ))}
-        </motion.dl>
-      </motion.div>
+          </TiltCard>
+        </Reveal>
+      </div>
+
+      <motion.span
+        aria-hidden
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-xs tracking-[0.3em] text-muted-foreground uppercase md:block"
+      >
+        scroll
+      </motion.span>
     </section>
   );
 }

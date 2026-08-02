@@ -9,16 +9,16 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { Method } from "@/components/sections/Method";
-import { Solutions } from "@/components/sections/Solutions";
-import { Results } from "@/components/sections/Results";
+import { ServiceSelector } from "@/components/sections/ServiceSelector";
+import { Model } from "@/components/sections/Model";
+import { Authority } from "@/components/sections/Authority";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 
-const title = "MA Growth — Crescimento previsível para empresas que vendem todos os dias";
+const title = "MA Growth — Marketing digital pontual, sem contrato engessado";
 const description =
-  "Tecnologia, dados e aquisição em um só sistema. A MA Growth transforma operações em máquinas de receita previsível. Fale agora no WhatsApp.";
+  "Contrate só o que sua empresa precisa: landing pages de alta conversão, automação de WhatsApp, tráfego pago e social media. Fale direto com o Matheus.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,7 +48,7 @@ function Loader() {
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-            className="block h-full w-full bg-[image:var(--gradient-gold)]"
+            className="block h-full w-full bg-[image:var(--gradient-brand)]"
           />
         </span>
       </div>
@@ -80,9 +80,9 @@ function Index() {
         <Navbar />
         <main>
           <Hero />
-          <Method />
-          <Solutions />
-          <Results />
+          <ServiceSelector />
+          <Model />
+          <Authority />
           <Faq />
           <FinalCta />
         </main>
@@ -99,7 +99,11 @@ function Index() {
             name: "MA Growth",
             description,
             areaServed: "BR",
-            sameAs: ["https://instagram.com/magrowth"],
+            founder: { "@type": "Person", name: "Matheus Almeida Vieira" },
+            address: { "@type": "PostalAddress", addressLocality: "São Vicente", addressRegion: "SP", addressCountry: "BR" },
+            email: "omatheusx08@gmail.com",
+            telephone: "+5513988631429",
+            sameAs: ["https://instagram.com/ma.growthbr"],
           }),
         }}
       />

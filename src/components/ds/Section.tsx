@@ -28,11 +28,11 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase backdrop-blur-md transition-colors duration-300 hover:border-gold/50 hover:text-gold",
+        "inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-[11px] font-medium tracking-[0.22em] text-muted-foreground uppercase backdrop-blur-md transition-colors duration-300 hover:border-brand/50 hover:text-brand",
         className,
       )}
     >
-      <span aria-hidden className="size-1.5 rounded-full bg-gold shadow-[0_0_12px_var(--gold)]" />
+      <span aria-hidden className="size-1.5 rounded-full bg-brand shadow-[0_0_12px_var(--brand)]" />
       {children}
     </span>
   );

@@ -28,7 +28,7 @@ export function CursorGlow() {
       style={{ left: sx, top: sy }}
       className="pointer-events-none fixed z-[55] hidden size-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 mix-blend-screen blur-3xl md:block"
     >
-      <div className="size-full rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--gold)_22%,transparent),transparent_65%)]" />
+      <div className="size-full rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand)_22%,transparent),transparent_65%)]" />
     </motion.div>
   );
 }

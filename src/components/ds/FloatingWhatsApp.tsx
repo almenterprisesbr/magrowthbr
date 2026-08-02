@@ -18,12 +18,12 @@ export function FloatingWhatsApp() {
       initial={false}
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0.6, y: visible ? 0 : 20 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="group fixed right-5 bottom-5 z-50 flex size-14 items-center justify-center rounded-full bg-[image:var(--gradient-gold)] text-primary-foreground shadow-[var(--shadow-gold)] transition-transform duration-300 hover:scale-110 focus-visible:scale-110"
+      className="group fixed right-5 bottom-5 z-50 flex size-14 items-center justify-center rounded-full bg-[image:var(--gradient-brand)] text-primary-foreground shadow-[var(--shadow-brand)] transition-transform duration-300 hover:scale-110 focus-visible:scale-110"
       style={{ pointerEvents: visible ? "auto" : "none" }}
     >
       <span
         aria-hidden
-        className="animate-pulse-ring absolute inset-0 rounded-full border border-gold"
+        className="animate-pulse-ring absolute inset-0 rounded-full border border-brand"
       />
       <MessageCircle className="size-6" aria-hidden />
     </motion.a>

@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        gold: "bg-[image:var(--gradient-gold)] text-primary-foreground shadow-[var(--shadow-gold)] hover:brightness-110 hover:shadow-[0_24px_60px_-16px_color-mix(in_oklab,var(--gold)_60%,transparent)]",
+        brand: "bg-[image:var(--gradient-brand)] text-primary-foreground shadow-[var(--shadow-brand)] hover:brightness-110 hover:shadow-[0_24px_60px_-16px_color-mix(in_oklab,var(--brand)_60%,transparent)]",
         outline:
-          "border border-border bg-transparent text-foreground hover:border-gold/60 hover:bg-accent/60 hover:text-accent-foreground",
+          "border border-border bg-transparent text-foreground hover:border-brand/60 hover:bg-accent/60 hover:text-accent-foreground",
         ghost: "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
       },
       size: {
@@ -20,7 +20,7 @@ const buttonVariants = cva(
         lg: "h-14 px-9 text-base",
       },
     },
-    defaultVariants: { variant: "gold", size: "md" },
+    defaultVariants: { variant: "brand", size: "md" },
   },
 );
 
