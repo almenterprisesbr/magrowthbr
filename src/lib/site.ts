@@ -1,14 +1,20 @@
 export const site = {
   name: "MA Growth",
-  tagline: "Tecnologia e crescimento previsível",
-  whatsappNumber: "5511987654321",
+  founder: "Matheus Almeida Vieira",
+  tagline: "Marketing digital pontual, sem contrato engessado",
+  whatsappNumber: "5513988631429",
+  whatsappDisplay: "(13) 98863-1429",
   whatsappMessage:
-    "Olá! Vim pelo site da MA Growth e quero entender como acelerar o crescimento da minha empresa.",
-  instagram: "https://instagram.com/magrowth",
-  email: "contato@magrowth.com.br",
-  location: "São Paulo · Brasil · Atendimento remoto",
+    "Oi Matheus! Quero montar um projeto pontual para minha empresa.",
+  instagram: "https://instagram.com/ma.growthbr",
+  instagramHandle: "@ma.growthbr",
+  email: "omatheusx08@gmail.com",
+  location: "São Vicente · SP",
 } as const;
 
 export const whatsappUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
   site.whatsappMessage,
 )}`;
+
+export const whatsappWith = (message: string) =>
+  `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
