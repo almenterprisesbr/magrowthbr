@@ -8,18 +8,19 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "Preciso fechar um contrato mensal para começar?",
-    a: "Não! Trabalhamos com serviços pontuais. Se você precisa só do site ou só da automação, fazemos exatamente isso.",
+    q: "Preciso fechar um pacote mensal para começar?",
+    a: "Não necessariamente. Você contrata só o que precisa, no formato pontual: criação e integração de landing page ou site, criação de posts, campanhas de tráfego, criação de reels, logo e identidade visual. Se depois fizer sentido evoluir para algo contínuo, a decisão é sua — nunca uma exigência.",
   },
   {
-    q: "Como funciona o atendimento após a entrega?",
-    a: "Fornecemos suporte e alinhamento direto para garantir que o serviço contratado esteja gerando retorno.",
+    q: "Quanto tempo leva para o serviço ficar pronto?",
+    a: "O prazo varia conforme a demanda e o tamanho do escopo. Ele é definido e confirmado após o envio de uma porcentagem do valor como entrada — a partir daí o cronograma fica fechado, com entregas ágeis, data marcada e sem atraso.",
   },
   {
-    q: "Quanto tempo demora para o meu site/automação ficar pronto?",
-    a: "Prazos ágeis e pré-definidos na proposta inicial, sem atrasos.",
+    q: "Como funciona o acompanhamento depois da entrega?",
+    a: "Você fala direto comigo, sem intermediários. Faço o alinhamento e os ajustes necessários para que o serviço contratado realmente gere retorno.",
   },
 ];
+
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
