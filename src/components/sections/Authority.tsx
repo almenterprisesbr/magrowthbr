@@ -1,5 +1,7 @@
 import { Bot, LayoutGrid, LineChart, PenTool, Scissors, Target } from "lucide-react";
 
+import matheusPhoto from "@/assets/matheus.png.asset.json";
+
 import { Eyebrow, Heading, Section } from "@/components/ds/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/lib/site";
