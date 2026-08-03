@@ -14,24 +14,22 @@ export function Logo({
         src={logoAsset.url}
         alt="MA Growth Marketing"
         loading="lazy"
-        className={cn("h-10 w-auto object-contain", className)}
+        className={cn("h-12 w-auto object-contain", className)}
       />
     );
   }
 
+  // Crop the uploaded logo down to just the "MA" symbol.
   return (
     <span
-      className={cn(
-        "grid size-8 shrink-0 place-items-center overflow-hidden rounded-xl bg-background ring-1 ring-brand/40",
-        className,
-      )}
+      aria-hidden
+      className={cn("relative block h-8 w-[78px] shrink-0 overflow-hidden", className)}
     >
       <img
         src={logoAsset.url}
-        alt="MA Growth"
+        alt=""
         loading="lazy"
-        className="size-full scale-[1.35] object-contain object-center"
-        style={{ clipPath: "inset(12% 8% 30% 8%)" }}
+        className="absolute top-0 left-0 h-auto w-[143%] max-w-none -translate-x-[24%] -translate-y-[48%]"
       />
     </span>
   );
