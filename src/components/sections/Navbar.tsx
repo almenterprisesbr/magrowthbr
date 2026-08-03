@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ds/Button";
 import { Magnetic } from "@/components/motion/MagneticButton";
 import { whatsappUrl } from "@/lib/site";
+import { Logo } from "@/components/ds/Logo";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -41,12 +42,7 @@ export function Navbar() {
           className="flex items-center gap-2 text-sm font-semibold tracking-tight"
           aria-label="MA Growth, início"
         >
-          <span
-            aria-hidden
-            className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-brand)] text-[13px] font-bold text-primary-foreground"
-          >
-            MA
-          </span>
+          <Logo />
           <span className="hidden sm:inline">
             MA <span className="text-brand-gradient">Growth</span>
           </span>

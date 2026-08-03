@@ -1,5 +1,6 @@
-import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 
+import { Logo } from "@/components/ds/Logo";
 import { site, whatsappUrl } from "@/lib/site";
 
 const links = [
@@ -14,13 +15,8 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10">
         <div className="flex flex-wrap items-center justify-between gap-8">
           <a href="#topo" className="flex items-center gap-2 text-sm font-semibold">
-            <span
-              aria-hidden
-              className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-brand)] text-[13px] font-bold text-primary-foreground"
-            >
-              MA
-            </span>
-            MA <span className="text-brand-gradient">Growth</span>
+            <Logo variant="full" className="h-11" />
+            <span className="sr-only">MA Growth</span>
           </a>
 
           <ul className="flex flex-wrap items-center gap-6">
@@ -44,8 +40,8 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8 text-xs text-muted-foreground">
           <p className="inline-flex items-center gap-2">
-            <MapPin aria-hidden className="size-4 text-brand" />
-            {site.location}
+            <MessageCircle aria-hidden className="size-4 text-brand" />
+            Atendimento 100% online em todo o Brasil
           </p>
           <p>© {new Date().getFullYear()} MA Growth. Todos os direitos reservados.</p>
         </div>
