@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 import { Button } from "@/components/ds/Button";
 import { Eyebrow, Heading, Lead } from "@/components/ds/Section";
+import { Logo } from "@/components/ds/Logo";
 import { TiltCard } from "@/components/ds/TiltCard";
 import { Magnetic } from "@/components/motion/MagneticButton";
 import { Reveal } from "@/components/motion/Reveal";
@@ -74,11 +75,8 @@ export function Hero() {
           <TiltCard className="w-full">
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-4">
-                <span
-                  aria-hidden
-                  className="grid size-16 place-items-center rounded-2xl bg-[image:var(--gradient-brand)] text-xl font-bold text-primary-foreground shadow-[var(--shadow-brand)]"
-                >
-                  MA
+                <span className="grid size-16 shrink-0 place-items-center rounded-2xl border border-brand/40 bg-background shadow-[var(--shadow-brand)]">
+                  <Logo className="h-6 w-[58px]" />
                 </span>
                 <div>
                   <p className="text-base font-semibold">{site.founder}</p>
