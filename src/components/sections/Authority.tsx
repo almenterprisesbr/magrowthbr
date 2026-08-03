@@ -1,5 +1,7 @@
 import { Bot, LayoutGrid, LineChart, PenTool, Scissors, Target } from "lucide-react";
 
+import matheusPhoto from "@/assets/matheus.png.asset.json";
+
 import { Eyebrow, Heading, Section } from "@/components/ds/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/lib/site";
@@ -18,17 +20,22 @@ export function Authority() {
     <Section id="quem-executa" label="Quem executa">
       <div className="grid items-center gap-12 md:grid-cols-[auto_1fr]">
         <Reveal variant="scale">
-          <div className="relative mx-auto size-48 rounded-3xl border border-brand/60 p-2 shadow-[var(--shadow-brand)] md:size-56">
-            <div className="grid size-full place-items-center rounded-2xl bg-[image:var(--gradient-surface)]">
+          <div className="group relative mx-auto w-56 rounded-3xl border border-brand/60 p-2 shadow-[var(--shadow-brand)] md:w-72">
+            <div className="relative overflow-hidden rounded-2xl">
+              <img
+                src={matheusPhoto.url}
+                alt="Matheus Almeida Vieira, fundador da MA Growth"
+                loading="lazy"
+                className="aspect-square w-full scale-105 object-cover grayscale transition-all duration-700 ease-[var(--ease-lux)] group-hover:scale-100 group-hover:grayscale-0"
+              />
               <span
                 aria-hidden
-                className="text-brand-gradient font-display text-5xl font-bold tracking-tight"
-              >
-                MA
-              </span>
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,color-mix(in_oklab,var(--background)_75%,transparent),transparent_55%)]"
+              />
             </div>
           </div>
         </Reveal>
+
 
         <div className="flex flex-col items-start gap-5">
           <Reveal>

@@ -7,8 +7,8 @@ export const site = {
   whatsappMessage: "Oi Matheus! Quero montar um projeto pontual para minha empresa.",
   instagram: "https://instagram.com/ma.growthbr",
   instagramHandle: "@ma.growthbr",
-  email: "omatheusx08@gmail.com",
-  location: "São Vicente · SP",
+  email: "almenterprisesbr@gmail.com",
+  location: "Atendimento online · Brasil",
 } as const;
 
 export const whatsappUrl = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
