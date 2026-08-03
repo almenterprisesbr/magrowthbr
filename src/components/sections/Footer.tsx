@@ -13,13 +13,12 @@ export function Footer() {
     <footer className="relative border-t border-border px-5 py-14 sm:px-8">
       <div className="mx-auto flex max-w-6xl flex-col gap-10">
         <div className="flex flex-wrap items-center justify-between gap-8">
-          <a href="#topo" className="flex items-center gap-2 text-sm font-semibold">
-            <span
-              aria-hidden
-              className="grid size-8 place-items-center rounded-xl bg-[image:var(--gradient-brand)] text-[13px] font-bold text-primary-foreground"
-            >
-              MA
-            </span>
+          <a href="#topo" className="flex items-center gap-2.5 text-sm font-semibold">
+            <img
+              src="/logo-icon.png"
+              alt="MA Growth"
+              className="size-9 rounded-full object-contain"
+            />
             MA <span className="text-brand-gradient">Growth</span>
           </a>
 

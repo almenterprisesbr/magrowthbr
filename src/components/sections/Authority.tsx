@@ -18,15 +18,12 @@ export function Authority() {
     <Section id="quem-executa" label="Quem executa">
       <div className="grid items-center gap-12 md:grid-cols-[auto_1fr]">
         <Reveal variant="scale">
-          <div className="relative mx-auto size-48 rounded-3xl border border-brand/60 p-2 shadow-[var(--shadow-brand)] md:size-56">
-            <div className="grid size-full place-items-center rounded-2xl bg-[image:var(--gradient-surface)]">
-              <span
-                aria-hidden
-                className="text-brand-gradient font-display text-5xl font-bold tracking-tight"
-              >
-                MA
-              </span>
-            </div>
+          <div className="relative mx-auto size-48 overflow-hidden rounded-2xl md:size-56">
+            <img
+              src="/matheus-almeida.jpg"
+              alt="Matheus Almeida Vieira"
+              className="size-full rounded-2xl object-cover"
+            />
           </div>
         </Reveal>
 
