@@ -29,7 +29,7 @@ export function Logo({
         src={logoAsset.url}
         alt=""
         loading="lazy"
-        className="absolute top-0 left-0 h-auto w-[143%] max-w-none -translate-x-[24%] -translate-y-[48%]"
+        className="absolute top-0 left-0 h-auto w-[143%] max-w-none -translate-x-[16.7%] -translate-y-[20.6%]"
       />
     </span>
   );
