@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 
 type Post = {
-  /** Caminho da imagem em /public, ex: "/portfolio/acai/1.jpg". Vazio = placeholder. */
+  /** Caminho da imagem em /public, ex: "/portfolio/acai/1.webp". Vazio = placeholder. */
   src?: string;
   emoji: string;
 };
@@ -41,12 +41,12 @@ const profiles: Profile[] = [
     avatarEmoji: "🍇",
     accent: "oklch(0.62 0.19 320)",
     grid: [
-      { emoji: "🍇", src: "/portfolio/acai/1.jpg" },
-      { emoji: "🥣", src: "/portfolio/acai/2.jpg" },
-      { emoji: "🍨", src: "/portfolio/acai/3.jpg" },
-      { emoji: "🌿", src: "/portfolio/acai/4.jpg" },
-      { emoji: "✨", src: "/portfolio/acai/5.jpg" },
-      { emoji: "🎯", src: "/portfolio/acai/6.jpg" },
+      { emoji: "🍇", src: "/portfolio/acai/1.webp" },
+      { emoji: "🥣", src: "/portfolio/acai/2.webp" },
+      { emoji: "🍨", src: "/portfolio/acai/3.webp" },
+      { emoji: "🌿", src: "/portfolio/acai/4.webp" },
+      { emoji: "✨", src: "/portfolio/acai/5.webp" },
+      { emoji: "🎯", src: "/portfolio/acai/6.webp" },
     ],
   },
   {
@@ -58,12 +58,12 @@ const profiles: Profile[] = [
     avatarEmoji: "✂️",
     accent: "oklch(0.75 0.14 85)",
     grid: [
-      { emoji: "✂️", src: "/portfolio/barbearia/1.jpg" },
-      { emoji: "💈", src: "/portfolio/barbearia/2.jpg" },
-      { emoji: "🪒", src: "/portfolio/barbearia/3.jpg" },
-      { emoji: "🧔", src: "/portfolio/barbearia/4.jpg" },
-      { emoji: "💎", src: "/portfolio/barbearia/5.jpg" },
-      { emoji: "🔥", src: "/portfolio/barbearia/6.jpg" },
+      { emoji: "✂️", src: "/portfolio/barbearia/1.webp" },
+      { emoji: "💈", src: "/portfolio/barbearia/2.webp" },
+      { emoji: "🪒", src: "/portfolio/barbearia/3.webp" },
+      { emoji: "🧔", src: "/portfolio/barbearia/4.webp" },
+      { emoji: "💎", src: "/portfolio/barbearia/5.webp" },
+      { emoji: "🔥", src: "/portfolio/barbearia/6.webp" },
     ],
   },
   {
@@ -75,12 +75,12 @@ const profiles: Profile[] = [
     avatarEmoji: "🌸",
     accent: "oklch(0.72 0.12 15)",
     grid: [
-      { emoji: "🌸", src: "/portfolio/clinica/1.jpg" },
-      { emoji: "✨", src: "/portfolio/clinica/2.jpg" },
-      { emoji: "💆‍♀️", src: "/portfolio/clinica/3.jpg" },
-      { emoji: "🧴", src: "/portfolio/clinica/4.jpg" },
-      { emoji: "💅", src: "/portfolio/clinica/5.jpg" },
-      { emoji: "🌷", src: "/portfolio/clinica/6.jpg" },
+      { emoji: "🌸", src: "/portfolio/clinica/1.webp" },
+      { emoji: "✨", src: "/portfolio/clinica/2.webp" },
+      { emoji: "💆‍♀️", src: "/portfolio/clinica/3.webp" },
+      { emoji: "🧴", src: "/portfolio/clinica/4.webp" },
+      { emoji: "💅", src: "/portfolio/clinica/5.webp" },
+      { emoji: "🌷", src: "/portfolio/clinica/6.webp" },
     ],
   },
 ];
@@ -238,7 +238,7 @@ export function InstagramPortfolio() {
   const [active, setActive] = useState<{ profile: Profile; index: number } | null>(null);
 
   return (
-    <Section id="nossos-trabalhos" label="Nossos trabalhos">
+    <Section id="portfolio" label="Portfólio">
       <div className="flex flex-col items-center gap-4 text-center">
         <Reveal>
           <Eyebrow>
@@ -247,11 +247,12 @@ export function InstagramPortfolio() {
           </Eyebrow>
         </Reveal>
         <Reveal delay={0.06}>
-          <Heading className="text-center">Nossos trabalhos</Heading>
+          <Heading className="text-center">Trabalhos que já entregamos</Heading>
         </Reveal>
         <Reveal delay={0.12}>
           <Lead className="mx-auto text-center">
-            Clique em qualquer post para ver de perto.
+            Um exemplo do padrão visual que sua marca pode ter. Clique em qualquer post para ver
+            de perto.
           </Lead>
         </Reveal>
       </div>

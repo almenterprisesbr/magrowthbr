@@ -11,6 +11,7 @@ const links = [
   { href: "#servicos", label: "Serviços" },
   { href: "#modelo", label: "Modelo" },
   { href: "#quem-executa", label: "Quem executa" },
+  { href: "#portfolio", label: "Portfólio" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
 
