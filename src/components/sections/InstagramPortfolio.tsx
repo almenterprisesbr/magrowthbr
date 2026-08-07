@@ -132,16 +132,25 @@ function InstagramCard({
               <img
                 src={post.src}
                 alt={`Post ${i + 1} de @${profile.handle}`}
+                loading="lazy"
                 className="size-full object-cover"
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  img.style.display = "none";
+                  const fallback = img.nextElementSibling as HTMLElement | null;
+                  if (fallback) fallback.style.display = "flex";
+                }}
               />
-            ) : (
-              <div
-                className="flex size-full items-center justify-center text-2xl"
-                style={{ background: `color-mix(in oklab, ${profile.accent} 14%, transparent)` }}
-              >
-                {post.emoji}
-              </div>
-            )}
+            ) : null}
+            <div
+              className="flex size-full items-center justify-center text-2xl"
+              style={{
+                background: `color-mix(in oklab, ${profile.accent} 14%, transparent)`,
+                display: post.src ? "none" : "flex",
+              }}
+            >
+              {post.emoji}
+            </div>
             <span
               aria-hidden
               className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover/post:bg-black/10"
@@ -211,17 +220,23 @@ function PostViewerModal({
                       src={post.src}
                       alt={`Post ${i + 1} de @${profile.handle}`}
                       className="size-full object-cover"
-                    />
-                  ) : (
-                    <div
-                      className="flex size-full items-center justify-center text-7xl"
-                      style={{
-                        background: `color-mix(in oklab, ${profile.accent} 16%, transparent)`,
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        img.style.display = "none";
+                        const fallback = img.nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = "flex";
                       }}
-                    >
-                      {post.emoji}
-                    </div>
-                  )}
+                    />
+                  ) : null}
+                  <div
+                    className="flex size-full items-center justify-center text-7xl"
+                    style={{
+                      background: `color-mix(in oklab, ${profile.accent} 16%, transparent)`,
+                      display: post.src ? "none" : "flex",
+                    }}
+                  >
+                    {post.emoji}
+                  </div>
                 </div>
               </CarouselItem>
             ))}
