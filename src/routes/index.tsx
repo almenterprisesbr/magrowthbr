@@ -13,6 +13,8 @@ import { ServiceSelector } from "@/components/sections/ServiceSelector";
 import { Model } from "@/components/sections/Model";
 import { Authority } from "@/components/sections/Authority";
 import { InstagramPortfolio } from "@/components/sections/InstagramPortfolio";
+import { LogoPortfolio } from "@/components/sections/LogoPortfolio";
+import { LaptopShowcase } from "@/components/sections/LaptopShowcase";
 import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
@@ -83,6 +85,8 @@ function Index() {
           <Hero />
           <ServiceSelector />
           <InstagramPortfolio />
+          <LogoPortfolio />
+          <LaptopShowcase />
           <Model />
           <Authority />
           <Faq />

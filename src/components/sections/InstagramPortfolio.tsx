@@ -1,169 +1,302 @@
+import { Grid3x3, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
+
+import { Eyebrow, Heading, Lead, Section } from "@/components/ds/Section";
+import { TiltCard } from "@/components/ds/TiltCard";
 import { Reveal } from "@/components/motion/Reveal";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
-// Imagens do nicho Açaí
-import acai1 from "@/assets/portfolio/acai/1.png";
-import acai2 from "@/assets/portfolio/acai/2.png";
-import acai3 from "@/assets/portfolio/acai/3.png";
-import acai4 from "@/assets/portfolio/acai/4.png";
-import acai5 from "@/assets/portfolio/acai/5.png";
-import acai6 from "@/assets/portfolio/acai/6.webp";
+type Post = {
+  /** Caminho da imagem em /public, ex: "/portfolio/acai/1.webp". Vazio = placeholder. */
+  src?: string;
+  emoji: string;
+};
 
-// Imagens do nicho Barbearia
-import barbearia1 from "@/assets/portfolio/barbearia/1.png";
-import barbearia2 from "@/assets/portfolio/barbearia/2.webp";
-import barbearia3 from "@/assets/portfolio/barbearia/3.png";
-import barbearia4 from "@/assets/portfolio/barbearia/4.webp";
-import barbearia5 from "@/assets/portfolio/barbearia/5.webp";
-import barbearia6 from "@/assets/portfolio/barbearia/6.webp";
-
-// Imagens do nicho Clínica Estética
-import clinica1 from "@/assets/portfolio/clinica/1.png";
-import clinica2 from "@/assets/portfolio/clinica/2.png";
-import clinica3 from "@/assets/portfolio/clinica/3.png";
-import clinica4 from "@/assets/portfolio/clinica/4.png";
-import clinica5 from "@/assets/portfolio/clinica/5.png";
-import clinica6 from "@/assets/portfolio/clinica/6.png";
-
-interface Profile {
-  username: string;
+type Profile = {
+  handle: string;
   bio: string;
   posts: string;
   followers: string;
   following: string;
-  accentColor: string;
-  avatar: string;
-  slides: string[];
-}
+  avatarEmoji: string;
+  accent: string;
+  grid: Post[];
+};
 
 const profiles: Profile[] = [
   {
-    username: "@acai.freshbr",
-    bio: "🍇 Açaí premium gelado • Sabor que vicia",
+    handle: "acai.freshbr",
+    bio: "Açaí premium 🍇 Sabor que vicia",
     posts: "284",
     followers: "12,4k",
     following: "320",
-    accentColor: "#9b59b6",
-    avatar: acai1,
-    slides: [acai1, acai2, acai3, acai4, acai5, acai6],
+    avatarEmoji: "🍇",
+    accent: "oklch(0.62 0.19 320)",
+    grid: [
+      { emoji: "🍇", src: "/portfolio/acai/1.webp" },
+      { emoji: "🥣", src: "/portfolio/acai/2.webp" },
+      { emoji: "🍨", src: "/portfolio/acai/3.webp" },
+      { emoji: "🌿", src: "/portfolio/acai/4.webp" },
+      { emoji: "✨", src: "/portfolio/acai/5.webp" },
+      { emoji: "🎯", src: "/portfolio/acai/6.webp" },
+    ],
   },
   {
-    username: "@barbearia.elite",
-    bio: "✂️ Cortes que definem • Estilo é atitude",
+    handle: "barbearia.elite",
+    bio: "Cortes que definem ✂️ Estilo é atitude",
     posts: "512",
     followers: "8,9k",
-    following: "215",
-    accentColor: "#c9a84c",
-    avatar: barbearia1,
-    slides: [barbearia1, barbearia2, barbearia3, barbearia4, barbearia5, barbearia6],
+    following: "320",
+    avatarEmoji: "✂️",
+    accent: "oklch(0.75 0.14 85)",
+    grid: [
+      { emoji: "✂️", src: "/portfolio/barbearia/1.webp" },
+      { emoji: "💈", src: "/portfolio/barbearia/2.webp" },
+      { emoji: "🪒", src: "/portfolio/barbearia/3.webp" },
+      { emoji: "🧔", src: "/portfolio/barbearia/4.webp" },
+      { emoji: "💎", src: "/portfolio/barbearia/5.webp" },
+      { emoji: "🔥", src: "/portfolio/barbearia/6.webp" },
+    ],
   },
   {
-    username: "@clinica.glow",
-    bio: "🌸 Beleza & bem-estar • Agende já",
+    handle: "clinica.glow",
+    bio: "Beleza & bem-estar 🌸 Agende já",
     posts: "341",
     followers: "15,2k",
-    following: "408",
-    accentColor: "#e91e8c",
-    avatar: clinica1,
-    slides: [clinica1, clinica2, clinica3, clinica4, clinica5, clinica6],
+    following: "320",
+    avatarEmoji: "🌸",
+    accent: "oklch(0.72 0.12 15)",
+    grid: [
+      { emoji: "🌸", src: "/portfolio/clinica/1.webp" },
+      { emoji: "✨", src: "/portfolio/clinica/2.webp" },
+      { emoji: "💆‍♀️", src: "/portfolio/clinica/3.webp" },
+      { emoji: "🧴", src: "/portfolio/clinica/4.webp" },
+      { emoji: "💅", src: "/portfolio/clinica/5.webp" },
+      { emoji: "🌷", src: "/portfolio/clinica/6.webp" },
+    ],
   },
 ];
 
-/* ─── COMPONENTE PRINCIPAL ───────────────────────────────────────────────── */
-
-export function InstagramPortfolio() {
+function InstagramCard({
+  profile,
+  onOpenPost,
+}: {
+  profile: Profile;
+  onOpenPost: (postIndex: number) => void;
+}) {
   return (
-    <section className="py-24 px-4">
-      {/* Cabeçalho */}
-      <Reveal>
-        <div className="text-center mb-16">
-          <span className="text-xs tracking-[0.3em] uppercase text-[var(--brand)] mb-4 block">
-            Exemplos de trabalho
-          </span>
-          <h2 className="text-3xl md:text-4xl font-display font-semibold text-foreground mb-4">
-            Conheça um pouco do nosso trabalho
-          </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Exemplos de gestão de redes sociais para diferentes nichos
-          </p>
+    <TiltCard className="!p-0 overflow-hidden">
+      <div className="flex items-center gap-3 border-b border-border/60 p-4">
+        <div
+          className="flex size-11 shrink-0 items-center justify-center rounded-full text-xl"
+          style={{ background: `color-mix(in oklab, ${profile.accent} 22%, transparent)` }}
+        >
+          {profile.avatarEmoji}
         </div>
-      </Reveal>
+        <div className="min-w-0">
+          <p className="truncate text-sm font-semibold text-foreground">@{profile.handle}</p>
+          <p className="truncate text-xs text-muted-foreground">{profile.bio}</p>
+        </div>
+      </div>
 
-      {/* Grade de perfis */}
-      <div className="flex flex-col md:flex-row justify-center items-start gap-8 max-w-5xl mx-auto">
-        {profiles.map((profile, pi) => (
-          <Reveal key={profile.username} delay={pi * 0.1}>
-            <PhoneFrame profile={profile} />
-          </Reveal>
+      <div className="grid grid-cols-3 divide-x divide-border/60 border-b border-border/60 text-center">
+        {[
+          { label: "posts", value: profile.posts },
+          { label: "seguidores", value: profile.followers },
+          { label: "seguindo", value: profile.following },
+        ].map((s) => (
+          <div key={s.label} className="px-2 py-3">
+            <p className="text-sm font-semibold text-foreground">{s.value}</p>
+            <p className="text-[10px] tracking-wide text-muted-foreground uppercase">{s.label}</p>
+          </div>
         ))}
       </div>
-    </section>
+
+      <div className="grid grid-cols-3 gap-px bg-border/60">
+        {profile.grid.map((post, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => onOpenPost(i)}
+            className="group/post relative aspect-square overflow-hidden bg-surface transition-transform duration-300 hover:z-10 hover:scale-[1.03]"
+          >
+            {post.src ? (
+              <img
+                src={post.src}
+                alt={`Post ${i + 1} de @${profile.handle}`}
+                loading="lazy"
+                className="size-full object-cover"
+                onError={(e) => {
+                  const img = e.currentTarget;
+                  img.style.display = "none";
+                  const fallback = img.nextElementSibling as HTMLElement | null;
+                  if (fallback) fallback.style.display = "flex";
+                }}
+              />
+            ) : null}
+            <div
+              className="flex size-full items-center justify-center text-2xl"
+              style={{
+                background: `color-mix(in oklab, ${profile.accent} 14%, transparent)`,
+                display: post.src ? "none" : "flex",
+              }}
+            >
+              {post.emoji}
+            </div>
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover/post:bg-black/10"
+            />
+          </button>
+        ))}
+      </div>
+    </TiltCard>
   );
 }
 
-/* ─── PHONE FRAME ────────────────────────────────────────────────────────── */
-
-function PhoneFrame({ profile }: { profile: Profile }) {
+function PostViewerModal({
+  profile,
+  startIndex,
+  onClose,
+}: {
+  profile: Profile;
+  startIndex: number;
+  onClose: () => void;
+}) {
   return (
-    <div
-      className="rounded-[28px] overflow-hidden flex-shrink-0"
-      style={{
-        width: 220,
-        background: "var(--card)",
-        border: "2px solid var(--border)",
-        boxShadow: `0 0 0 6px var(--surface), 0 0 0 8px var(--border)`,
-      }}
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Posts de @${profile.handle}`}
     >
-      {/* Header do perfil */}
-      <div className="px-3 pt-3 pb-2" style={{ borderBottom: "1px solid var(--border)" }}>
-        {/* Avatar + nome */}
-        <div className="flex items-center gap-2.5 mb-2.5">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.94, y: 12 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.94, y: 12 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        onClick={(e) => e.stopPropagation()}
+        className="surface-panel relative w-full max-w-sm overflow-hidden rounded-3xl"
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Fechar"
+          className="absolute top-3 right-3 z-10 flex size-9 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60"
+        >
+          <X className="size-4" />
+        </button>
+
+        <div className="flex items-center gap-3 border-b border-border/60 p-4">
           <div
-            className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0"
-            style={{ border: `2px solid ${profile.accentColor}` }}
+            className="flex size-9 shrink-0 items-center justify-center rounded-full text-lg"
+            style={{ background: `color-mix(in oklab, ${profile.accent} 22%, transparent)` }}
           >
-            <img
-              src={profile.avatar}
-              alt={profile.username}
-              className="w-full h-full object-cover"
-            />
+            {profile.avatarEmoji}
           </div>
-          <div>
-            <p className="text-xs font-semibold" style={{ color: "var(--foreground)" }}>
-              {profile.username}
-            </p>
-            <p className="text-[10px] mt-0.5" style={{ color: "var(--muted-foreground)" }}>
-              {profile.bio}
-            </p>
-          </div>
+          <p className="text-sm font-semibold text-foreground">@{profile.handle}</p>
         </div>
 
-        {/* Stats */}
-        <div className="flex justify-around py-1.5">
-          {[
-            { label: "posts", value: profile.posts },
-            { label: "seguidores", value: profile.followers },
-            { label: "seguindo", value: profile.following },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-xs font-semibold" style={{ color: "var(--foreground)" }}>
-                {s.value}
-              </p>
-              <p className="text-[9px]" style={{ color: "var(--muted-foreground)" }}>
-                {s.label}
-              </p>
-            </div>
-          ))}
-        </div>
+        <Carousel opts={{ startIndex, loop: true }} className="w-full">
+          <CarouselContent>
+            {profile.grid.map((post, i) => (
+              <CarouselItem key={i}>
+                <div className="relative aspect-square w-full">
+                  {post.src ? (
+                    <img
+                      src={post.src}
+                      alt={`Post ${i + 1} de @${profile.handle}`}
+                      className="size-full object-cover"
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        img.style.display = "none";
+                        const fallback = img.nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = "flex";
+                      }}
+                    />
+                  ) : null}
+                  <div
+                    className="flex size-full items-center justify-center text-7xl"
+                    style={{
+                      background: `color-mix(in oklab, ${profile.accent} 16%, transparent)`,
+                      display: post.src ? "none" : "flex",
+                    }}
+                  >
+                    {post.emoji}
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-3" />
+          <CarouselNext className="right-3" />
+        </Carousel>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+export function InstagramPortfolio() {
+  const [active, setActive] = useState<{ profile: Profile; index: number } | null>(null);
+
+  return (
+    <Section id="portfolio" label="Portfólio">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <Reveal>
+          <Eyebrow>
+            <Grid3x3 aria-hidden className="size-3.5" />
+            Portfólio
+          </Eyebrow>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <Heading className="text-center">Trabalhos que já entregamos</Heading>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <Lead className="mx-auto text-center">
+            Um exemplo do padrão visual que sua marca pode ter. Clique em qualquer post para ver
+            de perto.
+          </Lead>
+        </Reveal>
       </div>
 
-      {/* Grid de posts */}
-      <div className="grid grid-cols-3" style={{ gap: 1, background: "var(--border)" }}>
-        {profile.slides.map((src, si) => (
-          <div key={si} className="aspect-square overflow-hidden">
-            <img src={src} alt="" className="w-full h-full object-cover" />
-          </div>
+      <div
+        className={cn(
+          "mt-14 grid grid-cols-1 gap-6",
+          "sm:grid-cols-2 lg:grid-cols-3",
+        )}
+      >
+        {profiles.map((profile, i) => (
+          <Reveal key={profile.handle} delay={0.06 * i}>
+            <InstagramCard
+              profile={profile}
+              onOpenPost={(index) => setActive({ profile, index })}
+            />
+          </Reveal>
         ))}
       </div>
-    </div>
+
+      <AnimatePresence>
+        {active ? (
+          <PostViewerModal
+            profile={active.profile}
+            startIndex={active.index}
+            onClose={() => setActive(null)}
+          />
+        ) : null}
+      </AnimatePresence>
+    </Section>
   );
 }
