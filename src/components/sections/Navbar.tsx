@@ -43,7 +43,7 @@ export function Navbar() {
           aria-label="MA Growth, início"
         >
           <img
-            src="/logo-icon.png"
+            src="/logo-icon.webp"
             alt="MA Growth"
             className="size-9 rounded-full object-contain"
           />

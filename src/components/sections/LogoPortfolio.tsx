@@ -5,18 +5,18 @@ import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 const logos = [
   {
     name: "Brasa Burger House",
-    before: "/portfolio/logos/brasa-antes.png",
-    after: "/portfolio/logos/brasa-depois.png",
+    before: "/portfolio/logos/brasa-antes.webp",
+    after: "/portfolio/logos/brasa-depois.webp",
   },
   {
     name: "Aura Beauty Cosmetics",
-    before: "/portfolio/logos/aura-antes.png",
-    after: "/portfolio/logos/aura-depois.png",
+    before: "/portfolio/logos/aura-antes.webp",
+    after: "/portfolio/logos/aura-depois.webp",
   },
   {
     name: "Bella Essence Boutique",
-    before: "/portfolio/logos/bella-antes.png",
-    after: "/portfolio/logos/bella-depois.png",
+    before: "/portfolio/logos/bella-antes.webp",
+    after: "/portfolio/logos/bella-depois.webp",
   },
 ];
 

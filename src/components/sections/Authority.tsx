@@ -20,7 +20,7 @@ export function Authority() {
         <Reveal variant="scale">
           <div className="relative mx-auto size-48 overflow-hidden rounded-2xl md:size-56">
             <img
-              src="/matheus-almeida.jpg"
+              src="/matheus-almeida.webp"
               alt="Matheus Almeida Vieira"
               className="size-full rounded-2xl object-cover"
             />

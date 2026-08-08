@@ -15,7 +15,7 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-8">
           <a href="#topo" className="flex items-center gap-2.5 text-sm font-semibold">
             <img
-              src="/logo-icon.png"
+              src="/logo-icon.webp"
               alt="MA Growth"
               className="size-9 rounded-full object-contain"
             />
