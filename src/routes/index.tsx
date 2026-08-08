@@ -82,9 +82,9 @@ function Index() {
         <main>
           <Hero />
           <ServiceSelector />
+          <InstagramPortfolio />
           <Model />
           <Authority />
-          <InstagramPortfolio />
           <Faq />
           <FinalCta />
         </main>

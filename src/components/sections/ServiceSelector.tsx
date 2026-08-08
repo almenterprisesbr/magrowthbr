@@ -12,7 +12,12 @@ const services = [
   {
     id: "social",
     title: "Social Media Pontual",
-    desc: "Criação de posts, Reels e identidade visual.",
+    desc: "Criação de posts, Reels e conteúdo estratégico.",
+  },
+  {
+    id: "identidade",
+    title: "Logo & Identidade Visual",
+    desc: "Marca profissional que posiciona seu negócio.",
   },
   {
     id: "site",

@@ -13,7 +13,7 @@ const traditional = [
 const maGrowth = [
   "Contratação cirúrgica: só o que gera resultado agora",
   "Sem fidelidade forçada",
-  "Atendimento direto com quem executa (Matheus)",
+  "Atendimento direto conosco, sem intermediários",
   "Tecnologia de IA inclusa no processo",
 ];
 

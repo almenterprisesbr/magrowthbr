@@ -1,4 +1,4 @@
-import { Bot, LayoutGrid, LineChart, PenTool, Scissors, Target } from "lucide-react";
+import { Bot, Instagram, LayoutGrid, MessageCircle, PenTool, Scissors } from "lucide-react";
 
 import { Eyebrow, Heading, Section } from "@/components/ds/Section";
 import { Reveal } from "@/components/motion/Reveal";
@@ -8,14 +8,14 @@ const stack = [
   { label: "Adobe Suite", icon: PenTool },
   { label: "Canva", icon: LayoutGrid },
   { label: "CapCut", icon: Scissors },
-  { label: "Meta Business", icon: Target },
-  { label: "Google Ads", icon: LineChart },
-  { label: "Automações WhatsApp", icon: Bot },
+  { label: "Instagram", icon: Instagram },
+  { label: "WhatsApp", icon: MessageCircle },
+  { label: "Automações com IA", icon: Bot },
 ];
 
 export function Authority() {
   return (
-    <Section id="quem-executa" label="Quem executa">
+    <Section id="quem-executa" label="Quem está por trás">
       <div className="grid items-center gap-12 md:grid-cols-[auto_1fr]">
         <Reveal variant="scale">
           <div className="relative mx-auto size-48 overflow-hidden rounded-2xl md:size-56">
@@ -29,17 +29,17 @@ export function Authority() {
 
         <div className="flex flex-col items-start gap-5">
           <Reveal>
-            <Eyebrow>Autoridade</Eyebrow>
+            <Eyebrow>Fundador</Eyebrow>
           </Reveal>
           <Reveal delay={0.06}>
             <Heading>{site.founder}</Heading>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Por trás da MA Growth está Matheus Almeida, estudante de Publicidade e Propaganda na
-              UNISANTA. Especialista na integração entre Inteligência Artificial, Design e Gestão
-              de Tráfego. O objetivo é simples: entregar agilidade corporativa com atenção
-              personalizada.
+              Sou Matheus Almeida, estudante de Publicidade e Propaganda na UNISANTA. Trabalho com
+              social media, criação de conteúdo estratégico e identidade visual — com o apoio de
+              inteligência artificial para otimizar processos e automações. O objetivo é simples:
+              entregar agilidade com atenção personalizada.
             </p>
           </Reveal>
 

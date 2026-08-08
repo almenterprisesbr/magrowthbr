@@ -85,12 +85,13 @@ export function Hero() {
               </div>
 
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Publicidade e Propaganda (UNISANTA). Especialista em Inteligência Artificial,
-                Design e Conteúdo. Você fala direto com quem executa.
+                Publicidade e Propaganda (UNISANTA). Social media, conteúdo estratégico e
+                identidade visual — com apoio de IA para mais agilidade. Fale direto com a nossa
+                equipe.
               </p>
 
               <ul className="grid gap-2 text-sm">
-                {["Sem fidelidade forçada", "Atendimento direto", "IA aplicada ao projeto"].map(
+                {["Sem fidelidade forçada", "Atendimento direto conosco", "IA no processo"].map(
                   (item) => (
                     <li key={item} className="flex items-center gap-2 text-muted-foreground">
                       <Sparkles aria-hidden className="size-4 text-brand" />
