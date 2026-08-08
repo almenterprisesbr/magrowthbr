@@ -83,11 +83,11 @@ function Index() {
         <Navbar />
         <main>
           <Hero />
-          <ServiceSelector />
           <InstagramPortfolio />
           <LogoPortfolio />
           <LaptopShowcase />
           <Model />
+          <ServiceSelector />
           <Authority />
           <Faq />
           <FinalCta />
