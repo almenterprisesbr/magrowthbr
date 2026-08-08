@@ -8,10 +8,10 @@ import { whatsappUrl } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const links = [
+  { href: "#quem-executa", label: "Quem executa" },
   { href: "#portfolio", label: "Portfólio" },
   { href: "#modelo", label: "Modelo" },
   { href: "#servicos", label: "Serviços" },
-  { href: "#quem-executa", label: "Quem executa" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
 
