@@ -9,18 +9,17 @@ import { cn } from "@/lib/utils";
 const faqs = [
   {
     q: "Preciso fechar um pacote mensal para começar?",
-    a: "Não necessariamente. Você contrata só o que precisa, no formato pontual: criação e integração de landing page ou site, criação de posts, campanhas de tráfego, criação de reels, logo e identidade visual. Se depois fizer sentido evoluir para algo contínuo, a decisão é sua — nunca uma exigência.",
+    a: "Não necessariamente. Trabalhamos tanto com serviços avulsos sob demanda quanto com o ecossistema completo. O primeiro passo é realizarmos uma análise estratégica para entender o que trará mais retorno imediato ao seu negócio.",
   },
   {
     q: "Quanto tempo leva para o serviço ficar pronto?",
-    a: "O prazo varia conforme a demanda e o tamanho do escopo. Ele é definido e confirmado após o envio de uma porcentagem do valor como entrada — a partir daí o cronograma fica fechado, com entregas ágeis, data marcada e sem atraso.",
+    a: "O prazo varia conforme a demanda e o escopo do projeto. O cronograma é definido logo após o alinhamento inicial e confirmação de entrada, garantindo entregas ágeis, data marcada e sem atrasos.",
   },
   {
     q: "Como funciona o acompanhamento depois da entrega?",
-    a: "Você fala direto comigo, sem intermediários. Faço o alinhamento e os ajustes necessários para que o serviço contratado realmente gere retorno.",
+    a: "Você entra em contato direto conosco para fazermos os alinhamentos e ajustes necessários, garantindo que a estrutura contratada realmente gere resultados de vendas para o seu negócio.",
   },
 ];
-
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
@@ -63,19 +62,19 @@ export function Faq() {
                   />
                 </button>
                 <AnimatePresence initial={false}>
-                  {active ? (
+                  {active && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
                       <p className="px-6 pb-6 text-sm leading-relaxed text-muted-foreground">
                         {f.a}
                       </p>
                     </motion.div>
-                  ) : null}
+                  )}
                 </AnimatePresence>
               </div>
             </Reveal>
