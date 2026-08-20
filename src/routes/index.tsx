@@ -16,6 +16,7 @@ import { InstagramPortfolio } from "@/components/sections/InstagramPortfolio";
 import { LogoPortfolio } from "@/components/sections/LogoPortfolio";
 import { LaptopShowcase } from "@/components/sections/LaptopShowcase";
 import { Faq } from "@/components/sections/Faq";
+import { Ecossistema } from "@/components/sections/Ecossistema";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 
@@ -88,6 +89,7 @@ function Index() {
           <LaptopShowcase />
           <Model />
           <ServiceSelector />
+          <Ecossistema />
           <Authority />
           <Faq />
           <FinalCta />
