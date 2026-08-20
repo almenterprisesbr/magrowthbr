@@ -6,26 +6,27 @@ const VIDEO_POSTER = "/portfolio/landing-pages-showcase-poster.jpg";
 
 export function LaptopShowcase() {
   return (
-    <Section id="landing-pages" label="Landing pages em ação">
+    <Section id="landing-pages" label="Landing pages em acao">
       <div className="flex flex-col items-center gap-5 text-center">
         <Reveal>
-          <Eyebrow>Landing pages</Eyebrow>
+          <Eyebrow>Sites que geram leads</Eyebrow>
         </Reveal>
         <Reveal delay={0.06}>
-          <Heading className="text-center">Sites que vendem enquanto você dorme</Heading>
+          <Heading className="text-center">Sites que geram leads</Heading>
         </Reveal>
         <Reveal delay={0.12}>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Um passeio rápido por landing pages que já construímos, direto na tela.
+            Um passeio rápido por exemplos de Landing Pages e Sites que podem ser
+            implementados no seu negócio.
           </p>
         </Reveal>
       </div>
 
       <Reveal delay={0.18}>
         <div className="relative mx-auto mt-14 w-full max-w-4xl">
-          {/* Corpo do laptop */}
+          {/* Laptop body */}
           <div className="relative rounded-t-2xl border border-border/70 bg-gradient-to-b from-surface to-background p-3 shadow-2xl shadow-black/20 sm:p-4">
-            {/* Barra de título estilo navegador */}
+            {/* Browser bar */}
             <div className="mb-3 flex items-center gap-2 px-1">
               <span className="size-2.5 rounded-full bg-red-400/80" />
               <span className="size-2.5 rounded-full bg-amber-400/80" />
@@ -35,26 +36,30 @@ export function LaptopShowcase() {
               </div>
             </div>
 
-            {/* Tela / vídeo */}
+            {/* Screen / video */}
             <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-black ring-1 ring-black/20">
               <video
                 src={VIDEO_SRC}
                 poster={VIDEO_POSTER}
                 autoPlay
-                loop
                 muted
+                loop
                 playsInline
-                preload="metadata"
                 className="size-full object-cover"
               />
             </div>
           </div>
 
-          {/* "Base" do notebook, dá a profundidade de perspectiva */}
-          <div className="relative mx-auto h-3 w-[104%] max-w-none -translate-x-1/2 rounded-b-xl bg-gradient-to-b from-surface to-border/40 shadow-lg shadow-black/25 sm:h-4"
-            style={{ left: "50%" }}
+          {/* Laptop base */}
+          <div className="h-3 rounded-b-lg bg-gradient-to-b from-zinc-800 to-zinc-900 sm:h-4" />
+          <div className="mx-auto h-1 w-2/3 rounded-b-xl bg-zinc-900 sm:h-1.5" />
+
+          {/* Ambient glow */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-8 left-1/2 -z-10 h-24 w-3/4 -translate-x-1/2 rounded-full opacity-30 blur-3xl"
+            style={{ background: "radial-gradient(ellipse, var(--brand) 0%, transparent 70%)" }}
           />
-          <div className="mx-auto h-1.5 w-1/4 rounded-b-md bg-border/60" />
         </div>
       </Reveal>
     </Section>
