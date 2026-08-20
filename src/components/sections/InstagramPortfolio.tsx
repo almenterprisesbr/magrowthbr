@@ -262,7 +262,7 @@ export function InstagramPortfolio() {
           </Eyebrow>
         </Reveal>
         <Reveal delay={0.06}>
-          <Heading className="text-center">Trabalhos que já entregamos</Heading>
+          <Heading className="text-center">Conheça um pouco do meu trabalho</Heading>
         </Reveal>
         <Reveal delay={0.12}>
           <Lead className="mx-auto text-center">

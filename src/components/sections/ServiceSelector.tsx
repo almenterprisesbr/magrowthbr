@@ -39,6 +39,11 @@ const services = [
     title: "Consultoria Estratégica & Diagnóstico Digital",
     desc: "Plano claro do que fazer primeiro.",
   },
+  {
+    id: "clone-ia",
+    title: "Clone de IA para Atendimento",
+    desc: "Avatar com sua voz respondendo clientes 24h, no automático.",
+  },
 ] as const;
 
 export function ServiceSelector() {
