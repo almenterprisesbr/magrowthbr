@@ -9,14 +9,12 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { ServiceSelector } from "@/components/sections/ServiceSelector";
-import { Model } from "@/components/sections/Model";
 import { Authority } from "@/components/sections/Authority";
 import { InstagramPortfolio } from "@/components/sections/InstagramPortfolio";
 import { LogoPortfolio } from "@/components/sections/LogoPortfolio";
 import { LaptopShowcase } from "@/components/sections/LaptopShowcase";
-import { Faq } from "@/components/sections/Faq";
 import { Ecossistema } from "@/components/sections/Ecossistema";
+import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 
@@ -24,7 +22,7 @@ const title = "MA Growth — Marketing digital pontual, sem contrato engessado";
 const description =
   "Contrate só o que sua empresa precisa: landing pages de alta conversão, automação de WhatsApp, tráfego pago e social media. Fale direto com o Matheus.";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/")(({
   head: () => ({
     meta: [
       { title },
@@ -36,7 +34,7 @@ export const Route = createFileRoute("/")({
     ],
   }),
   component: Index,
-});
+}));
 
 function Loader() {
   return (
@@ -87,8 +85,6 @@ function Index() {
           <InstagramPortfolio />
           <LogoPortfolio />
           <LaptopShowcase />
-          <Model />
-          <ServiceSelector />
           <Ecossistema />
           <Authority />
           <Faq />
